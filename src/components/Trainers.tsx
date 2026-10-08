@@ -39,7 +39,7 @@ export default function Trainers() {
     .filter((_, idx) => idx !== activeIndex);
 
   return (
-    <section id="trainers" className="relative bg-ivory py-16 sm:py-24 md:py-36 lg:py-44 overflow-hidden border-t border-border-beige">
+    <section id="trainers" className="relative bg-ivory py-12 sm:py-20 md:py-36 lg:py-44 overflow-hidden border-t border-border-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         {/* Section Header with generous editorial spacing */}
         <motion.div
@@ -47,10 +47,10 @@ export default function Trainers() {
           initial={{ opacity: 0, y: 35 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 35 }}
           transition={{ duration: 0.8, ease: easeOut }}
-          className="mb-12 sm:mb-16 md:mb-20 flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8"
+          className="mb-8 sm:mb-14 md:mb-20 flex flex-col lg:flex-row lg:items-end justify-between gap-5 sm:gap-8"
         >
           <div>
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2.5 sm:mb-4">
               <span className="w-6 sm:w-8 h-[1px] bg-wine inline-block" />
               <span className="text-wine font-mono text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] font-semibold">
                 Coaching Pedigree
@@ -63,17 +63,17 @@ export default function Trainers() {
             </h2>
           </div>
 
-          <p className="text-dark-gray text-sm sm:text-base md:text-lg max-w-md leading-relaxed font-normal">
+          <p className="text-dark-gray text-xs sm:text-base md:text-lg max-w-md leading-relaxed font-normal">
             Every X1 coach is an accomplished athlete and certified kinematic specialist. We do not hire generic instructors — we curate mentors who hold you to world-class standards.
           </p>
         </motion.div>
 
         {/* FEATURED COACH: Asymmetric Magazine Editorial Layout */}
-        <div className="bg-white border border-border-beige rounded-sm shadow-[0_12px_40px_rgba(17,17,17,0.03)] p-4 sm:p-6 md:p-12 lg:p-14 mb-12 sm:mb-16">
-          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-14 items-center">
+        <div className="bg-white border border-border-beige rounded-sm shadow-[0_12px_40px_rgba(17,17,17,0.03)] p-4 sm:p-6 md:p-12 lg:p-14 mb-8 sm:mb-14">
+          <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-14 items-center">
             {/* LEFT: Large featured trainer portrait */}
             <div className="lg:col-span-5 relative group">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-xs bg-ivory-warm border border-border-beige/80">
+              <div className="relative aspect-[4/3] xs:aspect-[1/1] sm:aspect-[3/4] overflow-hidden rounded-xs bg-ivory-warm border border-border-beige/80">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeTrainer.name}
@@ -92,16 +92,16 @@ export default function Trainers() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Subtle warm vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-near-black/55 via-transparent to-transparent pointer-events-none" />
+                {/* Subtle natural bottom gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-near-black/40 via-transparent to-transparent pointer-events-none" />
 
                 {/* Floating badge inside portrait */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 flex items-center justify-between z-10">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-white/90 backdrop-blur-md text-near-black text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-xs border border-white/40 shadow-sm truncate">
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-5 sm:left-5 sm:right-5 flex items-center justify-between z-10">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-white/95 backdrop-blur-md text-near-black text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.14em] sm:tracking-[0.2em] rounded-xs border border-white/40 shadow-sm truncate">
                     <Award size={12} className="text-wine shrink-0" />
                     <span className="truncate">{activeTrainer.badge || 'X1 Master Coach'}</span>
                   </span>
-                  <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-ivory/90 bg-near-black/60 backdrop-blur-md px-2 sm:px-2.5 py-1 rounded-xs shrink-0">
+                  <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-ivory/90 bg-near-black/70 backdrop-blur-md px-2 sm:px-2.5 py-1 rounded-xs shrink-0">
                     {String(activeIndex + 1).padStart(2, '0')} / 04
                   </span>
                 </div>
@@ -209,20 +209,20 @@ export default function Trainers() {
                 onClick={() => setActiveIndex(trainer.originalIndex)}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="group cursor-pointer bg-white border border-border-beige hover:border-wine/70 rounded-sm p-4 transition-all duration-300 shadow-[0_4px_15px_rgba(17,17,17,0.02)] hover:shadow-lg hover:shadow-black/5"
+                className="group cursor-pointer bg-white border border-border-beige hover:border-wine/70 rounded-sm p-3.5 sm:p-4 transition-all duration-300 shadow-[0_4px_15px_rgba(17,17,17,0.02)] hover:shadow-lg hover:shadow-black/5"
               >
-                {/* Image portrait with slow zoom */}
-                <div className="relative aspect-[3/4] overflow-hidden rounded-xs bg-ivory-warm mb-4">
+                {/* Image portrait with natural colors */}
+                <div className="relative aspect-[4/3] xs:aspect-[1/1] sm:aspect-[3/4] overflow-hidden rounded-xs bg-ivory-warm mb-3.5 sm:mb-4">
                   <ImageWithFallback
                     src={trainer.image}
                     alt={trainer.name}
                     className="w-full h-full object-cover object-top editorial-img"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-near-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-near-black/35 via-transparent to-transparent pointer-events-none" />
                   
-                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="px-2 py-1 bg-white/95 text-near-black text-[10px] font-mono uppercase tracking-widest rounded-xs shadow-sm">
+                  <div className="absolute top-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="px-2 py-1 bg-white/95 text-near-black text-[10px] font-mono uppercase tracking-widest rounded-xs shadow-sm font-semibold">
                       Select
                     </span>
                   </div>

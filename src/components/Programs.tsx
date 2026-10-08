@@ -10,7 +10,7 @@ export default function Programs() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="programs" className="relative bg-[#0d0d0f] text-white py-16 sm:py-24 md:py-36 lg:py-44 overflow-hidden border-t border-white/10">
+    <section id="programs" className="relative bg-[#0d0d0f] text-white py-12 sm:py-20 md:py-36 lg:py-44 overflow-hidden border-t border-white/10">
       {/* Background subtle radial ambient depth */}
       <div 
         aria-hidden="true" 
@@ -23,7 +23,7 @@ export default function Programs() {
           initial={{ opacity: 0, y: 35 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 35 }}
           transition={{ duration: 0.8, ease: easeOut }}
-          className="mb-12 sm:mb-16 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8"
+          className="mb-8 sm:mb-14 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-5 sm:gap-8"
         >
           <div>
             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">

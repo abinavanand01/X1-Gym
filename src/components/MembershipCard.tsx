@@ -83,7 +83,7 @@ export default function MembershipCard({ plan, index }: Props) {
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative flex flex-col p-6 sm:p-8 md:p-10 rounded-xs border transition-all duration-400 ${
+      className={`relative flex flex-col p-5 sm:p-7 md:p-8 lg:p-10 rounded-xs border transition-all duration-400 ${
         plan.highlighted
           ? 'bg-[#18181c] border-2 border-wine shadow-[0_20px_60px_rgba(122,41,37,0.22)] md:scale-105 z-10'
           : 'bg-[#141416] hover:bg-[#18181b] border-white/10 hover:border-wine/50 shadow-md'
@@ -108,28 +108,28 @@ export default function MembershipCard({ plan, index }: Props) {
         </div>
       )}
 
-      <div className="mb-8 relative z-10">
-        <span className="text-xs font-mono uppercase tracking-[0.2em] text-stone-400 block mb-2">
+      <div className="mb-5 sm:mb-8 relative z-10">
+        <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-stone-400 block mb-1.5 sm:mb-2">
           Tier 0{index + 1}
         </span>
-        <h3 className={`text-xl font-bold uppercase tracking-[0.15em] mb-4 ${
+        <h3 className={`text-xl font-bold uppercase tracking-[0.15em] mb-3 sm:mb-4 ${
           plan.highlighted ? 'text-wine-light' : 'text-white'
         }`}>
           {plan.name}
         </h3>
         <div className="flex items-baseline gap-1.5">
-          <span className="text-4xl md:text-5xl font-black tracking-tight text-white">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
             {plan.price}
           </span>
-          <span className="text-stone-400 text-sm font-medium">/ month</span>
+          <span className="text-stone-400 text-xs sm:text-sm font-medium">/ month</span>
         </div>
       </div>
 
-      <ul className="space-y-3.5 mb-10 flex-1 relative z-10">
+      <ul className="space-y-2.5 sm:space-y-3.5 mb-6 sm:mb-10 flex-1 relative z-10">
         {plan.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3 text-sm text-stone-300 leading-snug font-normal">
+          <li key={feature} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-stone-300 leading-snug font-normal">
             <div className={`mt-0.5 rounded-full p-0.5 shrink-0 ${plan.highlighted ? 'bg-wine text-white' : 'bg-wine/20 text-wine-light'}`}>
-              <Check size={12} strokeWidth={3} />
+              <Check size={11} strokeWidth={3} />
             </div>
             <span>{feature}</span>
           </li>

@@ -84,7 +84,7 @@ export default function ProgramCard({ program, index, featured = false, classNam
       {/* Program Portrait Header */}
       <div
         className={`relative overflow-hidden bg-black/40 ${
-          featured ? 'md:col-span-7 aspect-[16/10] md:aspect-auto md:min-h-full' : 'aspect-[16/11]'
+          featured ? 'md:col-span-7 aspect-[16/10] sm:aspect-[16/10] md:aspect-auto md:min-h-full' : 'aspect-[16/10] sm:aspect-[16/11]'
         }`}
       >
         <ImageWithFallback
@@ -93,16 +93,16 @@ export default function ProgramCard({ program, index, featured = false, classNam
           loading="lazy"
           className="w-full h-full object-cover editorial-img"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141416] via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#141416]/70 via-transparent to-transparent pointer-events-none" />
 
         {/* Editorial program number */}
-        <div className="absolute top-3.5 left-4 sm:top-4 sm:left-5 text-white/90 font-mono text-xs tracking-widest bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-xs border border-white/10">
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-5 text-white/90 font-mono text-[10px] sm:text-xs tracking-widest bg-black/60 backdrop-blur-md px-2 sm:px-2.5 py-1 rounded-xs border border-white/10">
           TRACK 0{program.id}
         </div>
 
         {/* Small badge */}
-        <div className="absolute top-3.5 right-4 sm:top-4 sm:right-4">
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] px-2.5 py-1 bg-wine/80 text-white rounded-xs backdrop-blur-sm border border-wine/40">
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+          <span className="text-[10px] font-mono uppercase tracking-[0.16em] sm:tracking-[0.2em] px-2 py-0.5 sm:px-2.5 sm:py-1 bg-wine/85 text-white rounded-xs backdrop-blur-sm border border-wine/40 font-semibold">
             {featured ? 'Flagship Track' : 'Curriculum'}
           </span>
         </div>
@@ -110,35 +110,35 @@ export default function ProgramCard({ program, index, featured = false, classNam
 
       {/* Card Content */}
       <div
-        className={`p-5 sm:p-6 md:p-8 flex flex-col justify-between bg-[#141416] ${
+        className={`p-4 sm:p-6 md:p-8 flex flex-col justify-between bg-[#141416] ${
           featured ? 'md:col-span-5' : 'flex-1'
         }`}
       >
         <div>
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-wine-light transition-colors duration-300">
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-wine-light transition-colors duration-300">
               {program.title}
             </h3>
-            <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 group-hover:bg-wine group-hover:border-wine flex items-center justify-center transition-all duration-300 shrink-0">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 border border-white/10 group-hover:bg-wine group-hover:border-wine flex items-center justify-center transition-all duration-300 shrink-0">
               <ArrowUpRight
-                size={15}
+                size={14}
                 className="text-white/80 group-hover:text-white transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
               />
             </div>
           </div>
-          <p className="text-stone-300 text-sm md:text-base leading-relaxed mb-6 font-normal">
+          <p className="text-stone-300 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-6 font-normal">
             {program.description}
           </p>
         </div>
 
-        <div className="pt-4 border-t border-white/10">
+        <div className="pt-3 sm:pt-4 border-t border-white/10">
           <a
             href="#membership"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('#membership');
             }}
-            className="inline-flex items-center gap-2 text-wine-light hover:text-white text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 group-hover:translate-x-1"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-wine-light hover:text-white text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] font-bold transition-all duration-300 group-hover:translate-x-1 py-1"
           >
             <span>Learn More & Enroll</span>
             <span className="text-sm font-sans">→</span>

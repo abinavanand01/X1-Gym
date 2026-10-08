@@ -23,9 +23,9 @@ export default function Philosophy() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="philosophy" className="relative bg-ivory py-16 sm:py-24 md:py-36 lg:py-44 overflow-hidden border-t border-border-beige">
+    <section id="philosophy" className="relative bg-ivory py-12 sm:py-20 md:py-36 lg:py-44 overflow-hidden border-t border-border-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-center">
           {/* Image side - White framed editorial photo */}
           <motion.div
             ref={ref}
@@ -35,17 +35,17 @@ export default function Philosophy() {
             className="lg:col-span-5 relative group"
           >
             <div className="bg-white border border-border-beige p-2.5 sm:p-3.5 md:p-4 rounded-sm shadow-[0_12px_40px_rgba(17,17,17,0.04)]">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-xs bg-ivory-warm">
+              <div className="relative aspect-[4/3] xs:aspect-[1/1] sm:aspect-[3/4] overflow-hidden rounded-xs bg-ivory-warm">
                 <ImageWithFallback
                   src={ASSETS.hero.philosophy}
                   alt="The X1 Training Philosophy - Focused athlete"
-                  className="w-full h-full object-cover editorial-img"
+                  className="w-full h-full object-cover object-center editorial-img"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-near-black/50 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-near-black/35 via-transparent to-transparent pointer-events-none" />
 
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 z-20">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-near-black bg-white/90 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xs border border-white/60 shadow-sm inline-block truncate max-w-full">
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-5 sm:left-5 sm:right-5 z-20">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.16em] sm:tracking-[0.25em] text-near-black bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xs border border-white/60 shadow-sm inline-block truncate max-w-full font-semibold">
                     Discipline • Intensity • Purpose
                   </span>
                 </div>

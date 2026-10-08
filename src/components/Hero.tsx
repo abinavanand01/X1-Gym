@@ -56,7 +56,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative bg-ivory pt-24 sm:pt-32 md:pt-44 pb-16 sm:pb-20 md:pb-28 overflow-hidden"
+      className="relative bg-ivory pt-20 sm:pt-28 md:pt-44 pb-12 sm:pb-16 md:pb-28 overflow-hidden"
     >
       {/* Subtle Oversized Editorial Monogram Watermark */}
       <div 
@@ -68,12 +68,12 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 relative z-10">
         {/* Editorial Top Headline Section */}
-        <div className="max-w-5xl mb-10 sm:mb-14 md:mb-20">
+        <div className="max-w-5xl mb-6 sm:mb-10 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: easeOut }}
-            className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
+            className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-6"
           >
             <span className="w-6 sm:w-8 h-[1px] bg-wine inline-block" />
             <span className="text-wine font-mono text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] font-semibold truncate">
@@ -82,7 +82,7 @@ export default function Hero() {
           </motion.div>
 
           {/* ═══ CINEMATIC LINE-BY-LINE MASK REVEAL HEADING WITH OUTLINED WORD ═══ */}
-          <h1 className="text-[2.25rem] sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.95] sm:leading-[0.92] tracking-tighter text-near-black mb-6 sm:mb-8">
+          <h1 className="text-[2.15rem] xs:text-[2.4rem] sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.96] sm:leading-[0.92] tracking-tighter text-near-black mb-5 sm:mb-8">
             {heroLines.map((line, i) => (
               <span
                 key={line}
@@ -107,12 +107,12 @@ export default function Hero() {
             ))}
           </h1>
 
-          <div className="grid md:grid-cols-12 gap-6 sm:gap-8 items-end">
+          <div className="grid md:grid-cols-12 gap-5 sm:gap-8 items-end">
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.95, ease: easeOut }}
-              className="md:col-span-8 text-dark-gray text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl font-normal"
+              className="md:col-span-8 text-dark-gray text-xs sm:text-base md:text-xl leading-relaxed max-w-2xl font-normal"
             >
               Intelligent biomechanics, calibrated competition iron, and master-level coaching. 
               Designed to forge physical resilience and unshakeable confidence — inside and outside the gym.
@@ -122,7 +122,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.05, ease: easeOut }}
-              className="md:col-span-4 flex flex-col sm:flex-row md:justify-end items-stretch sm:items-center gap-3 w-full"
+              className="md:col-span-4 flex flex-row items-center gap-2.5 sm:gap-3 w-full md:justify-end"
             >
               <a
                 ref={heroCtaMagnetic.ref}
@@ -133,10 +133,10 @@ export default function Hero() {
                   e.preventDefault();
                   scrollToSection('#membership');
                 }}
-                className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-wine hover:bg-wine-light text-white text-xs font-bold uppercase tracking-[0.18em] rounded-xs transition-all duration-300 shadow-md shadow-wine/20 active:scale-[0.98] will-change-transform min-h-[48px]"
+                className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3.5 sm:py-4 bg-wine hover:bg-wine-light text-white text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] rounded-xs transition-all duration-300 shadow-md shadow-wine/20 active:scale-[0.98] will-change-transform min-h-[48px] text-center"
               >
                 <span>Start Training</span>
-                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
               </a>
               <a
                 href="#programs"
@@ -144,7 +144,7 @@ export default function Hero() {
                   e.preventDefault();
                   scrollToSection('#programs');
                 }}
-                className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 bg-white border border-border-beige hover:border-near-black text-near-black text-xs font-bold uppercase tracking-[0.18em] rounded-xs transition-all duration-300 active:scale-[0.98] min-h-[48px]"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center px-4 sm:px-7 py-3.5 sm:py-4 bg-white border border-border-beige hover:border-near-black text-near-black text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] rounded-xs transition-all duration-300 active:scale-[0.98] min-h-[48px] text-center"
               >
                 Explore
               </a>
@@ -159,7 +159,7 @@ export default function Hero() {
           transition={{ duration: 1.0, delay: 1.15, ease: easeOut }}
           className="relative rounded-sm bg-white border border-border-beige p-2 sm:p-3 md:p-4 shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
         >
-          <div className="relative aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-xs bg-ivory-warm">
+          <div className="relative aspect-[16/11] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-xs bg-ivory-warm">
             <motion.div style={{ scale, y: yImage }} className="w-full h-full will-change-transform">
               <ImageWithFallback
                 src={ASSETS.hero.background}
@@ -169,12 +169,12 @@ export default function Hero() {
               />
             </motion.div>
 
-            {/* Subtle editorial warm overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-near-black/60 via-transparent to-near-black/20 pointer-events-none" />
+            {/* Subtle natural bottom gradient for badge legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-near-black/35 via-transparent to-transparent pointer-events-none" />
 
             {/* Floating Editorial Badges */}
-            <div className="absolute top-3 left-3 sm:top-6 sm:left-6 z-10 max-w-[calc(100%-24px)]">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-white/90 backdrop-blur-md border border-white/60 text-near-black text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-xs shadow-sm truncate">
+            <div className="absolute top-2.5 left-2.5 sm:top-6 sm:left-6 z-10 max-w-[calc(100%-20px)]">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-white/95 backdrop-blur-md border border-white/60 text-near-black text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.14em] sm:tracking-[0.2em] rounded-xs shadow-sm truncate">
                 <Compass size={12} className="text-wine shrink-0" />
                 <span className="truncate">Flagship Facility • 14,000 SQ FT</span>
               </div>
@@ -194,7 +194,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="pt-6 sm:pt-10 flex flex-col sm:flex-row justify-between items-center gap-3 text-dark-gray/60 text-[11px] sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center sm:text-left"
+          className="pt-4 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-3 text-dark-gray/60 text-[10px] sm:text-xs font-mono uppercase tracking-[0.14em] sm:tracking-[0.2em] text-center sm:text-left"
         >
           <span>Discipline • Progressive Overload • Longevity</span>
           <a
@@ -203,7 +203,7 @@ export default function Hero() {
               e.preventDefault();
               scrollToSection('#philosophy');
             }}
-            className="flex items-center gap-2 hover:text-wine transition-colors min-h-[44px]"
+            className="flex items-center gap-1.5 sm:gap-2 hover:text-wine transition-colors min-h-[40px]"
           >
             <span>Scroll Down</span>
             <ChevronDown size={14} className="text-wine animate-bounce" />

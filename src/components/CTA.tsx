@@ -38,24 +38,24 @@ export default function CTA() {
   const magneticBtn = useMagnetic<HTMLAnchorElement>(0.3);
 
   return (
-    <section ref={ref} className="relative py-16 sm:py-24 md:py-36 lg:py-44 overflow-hidden bg-white border-t border-border-beige">
+    <section ref={ref} className="relative py-12 sm:py-20 md:py-36 lg:py-44 overflow-hidden bg-white border-t border-border-beige">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-4xl mx-auto text-center bg-ivory border border-border-beige rounded-sm p-6 sm:p-10 md:p-16 lg:p-20 shadow-[0_15px_45px_rgba(17,17,17,0.03)]">
+        <div className="max-w-4xl mx-auto text-center bg-ivory border border-border-beige rounded-sm p-5 sm:p-10 md:p-16 lg:p-20 shadow-[0_15px_45px_rgba(17,17,17,0.03)]">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.8, ease: easeOut }}
-            className="flex items-center justify-center gap-3 mb-6"
+            className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6"
           >
-            <span className="w-8 h-[1px] bg-wine inline-block" />
-            <span className="text-wine font-mono text-xs md:text-sm uppercase tracking-[0.3em] font-semibold">
+            <span className="w-6 sm:w-8 h-[1px] bg-wine inline-block" />
+            <span className="text-wine font-mono text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] font-semibold">
               The Next Evolution
             </span>
-            <span className="w-8 h-[1px] bg-wine inline-block" />
+            <span className="w-6 sm:w-8 h-[1px] bg-wine inline-block" />
           </motion.div>
 
           {/* ═══ Cinematic mask reveal for CTA heading ═══ */}
-          <h2 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.92] tracking-tighter text-near-black mb-6 sm:mb-8">
+          <h2 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.92] tracking-tighter text-near-black mb-5 sm:mb-8">
             {ctaLines.map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <motion.span
@@ -77,7 +77,7 @@ export default function CTA() {
             initial={{ opacity: 0, y: 25 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.8, delay: 0.5, ease: easeOut }}
-            className="text-dark-gray text-sm sm:text-base md:text-xl max-w-xl mx-auto mb-8 sm:mb-12 leading-relaxed font-normal"
+            className="text-dark-gray text-xs sm:text-base md:text-xl max-w-xl mx-auto mb-6 sm:mb-12 leading-relaxed font-normal"
           >
             Your next level starts with your next session. Step into the arena and experience what purposeful, scientifically engineered training can unlock.
           </motion.p>

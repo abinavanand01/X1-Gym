@@ -10,7 +10,7 @@ export default function Membership() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="membership" className="relative bg-[#0d0d0f] text-white py-16 sm:py-24 md:py-36 lg:py-44 overflow-hidden border-t border-white/10">
+    <section id="membership" className="relative bg-[#0d0d0f] text-white py-12 sm:py-20 md:py-36 lg:py-44 overflow-hidden border-t border-white/10">
       {/* Background subtle radial ambient depth */}
       <div 
         aria-hidden="true" 
@@ -23,7 +23,7 @@ export default function Membership() {
           initial={{ opacity: 0, y: 35 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 35 }}
           transition={{ duration: 0.8, ease: easeOut }}
-          className="mb-12 sm:mb-16 md:mb-20 text-center max-w-2xl mx-auto"
+          className="mb-8 sm:mb-14 md:mb-20 text-center max-w-2xl mx-auto"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-6 h-[1px] bg-wine inline-block" />

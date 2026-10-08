@@ -212,26 +212,23 @@ section {
   }
 }
 
-/* ═══ Smooth Black-and-White to Color Image Interactions (Req #4) ═══ */
+/* ═══ Editorial Photography — Full Natural Color By Default (No Grayscale) ═══ */
 .editorial-img {
-  filter: grayscale(100%) contrast(106%);
   transform: scale(1);
-  transition: filter 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: filter, transform;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .group:hover .editorial-img,
   .editorial-img:hover {
-    filter: grayscale(0%) contrast(100%);
     transform: scale(1.04);
   }
 }
 
-/* On mobile/touch: natural clear colors and stable transforms */
+/* On mobile/touch: stable transforms */
 @media (hover: none) {
   .editorial-img {
-    filter: grayscale(0%) contrast(100%);
     transform: none !important;
   }
 }

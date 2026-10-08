@@ -37,11 +37,11 @@ export default function FeaturedTraining() {
   const yImage = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
   return (
-    <section ref={ref} className="relative bg-[#0d0d0f] text-white py-16 sm:py-24 md:py-32 overflow-hidden border-t border-white/10">
+    <section ref={ref} className="relative bg-[#0d0d0f] text-white py-12 sm:py-20 md:py-32 overflow-hidden border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         <div className="relative rounded-xs bg-[#141416] border border-white/10 p-4 sm:p-6 md:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Cinematic Large Photo (7 cols) with B&W -> Color hover interaction */}
+          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
+            {/* Cinematic Large Photo (7 cols) */}
             <div className="lg:col-span-7 relative overflow-hidden rounded-xs aspect-[16/10] sm:aspect-[16/9] lg:aspect-[4/3] bg-black/60 group">
               <motion.div style={{ scale, y: yImage }} className="w-full h-full will-change-transform">
                 <ImageWithFallback
@@ -51,10 +51,10 @@ export default function FeaturedTraining() {
                   loading="lazy"
                 />
               </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 z-10 max-w-[calc(100%-24px)]">
-                <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-black/80 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-xs border border-white/20 shadow-sm truncate">
+              <div className="absolute bottom-2.5 left-2.5 sm:bottom-5 sm:left-5 z-10 max-w-[calc(100%-20px)]">
+                <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-black/85 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.14em] sm:tracking-[0.2em] rounded-xs border border-white/20 shadow-sm truncate font-semibold">
                   <Sparkles size={12} className="text-wine-light shrink-0" />
                   <span className="truncate">High Performance Arena</span>
                 </span>

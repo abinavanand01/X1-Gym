@@ -19,6 +19,8 @@ export interface Trainer {
 export interface MembershipPlan {
   name: string;
   price: string;
+  period?: string;
+  description?: string;
   features: string[];
   highlighted?: boolean;
 }

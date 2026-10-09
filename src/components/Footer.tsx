@@ -1,19 +1,19 @@
-import { navLinks } from '../data';
-
-function handleClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
-  e.preventDefault();
-  const el = document.querySelector(href) as HTMLElement | null;
-  if (el) {
-    const lenis = (window as any).lenis;
-    if (lenis) {
-      lenis.scrollTo(el, { duration: 1.2, offset: -50 });
-    } else {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-}
+import { navLinks, type NavLink } from '../data';
 
 export default function Footer() {
+  const scrollTo = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      const lenis = (window as any).lenis;
+      if (lenis) {
+        lenis.scrollTo(el, { duration: 1.2, offset: -75 });
+      } else {
+        const top = el.getBoundingClientRect().top + window.scrollY - 75;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="bg-[#EBE7DF] border-t border-border-beige pt-14 sm:pt-20 pb-10 sm:pb-12 text-near-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
@@ -21,9 +21,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-3.5 sm:space-y-4">
             <a
-              href="#hero"
-              onClick={(e) => handleClick(e, '#hero')}
-              className="text-3xl font-black tracking-tight text-near-black inline-block group"
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('home');
+              }}
+              className="text-3xl font-black tracking-tight text-near-black inline-block group cursor-pointer"
             >
               <span className="text-wine group-hover:text-wine-light transition-colors">X</span>1
             </a>
@@ -45,8 +48,11 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={(e) => handleClick(e, link.href)}
-                    className="inline-block py-0.5 text-dark-gray hover:text-wine text-sm transition-colors duration-300 font-medium"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo(link.sectionId);
+                    }}
+                    className="inline-block py-0.5 text-dark-gray hover:text-wine text-sm transition-colors duration-300 font-medium text-left cursor-pointer focus:outline-none"
                   >
                     {link.label}
                   </a>

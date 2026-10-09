@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useMagnetic } from '../hooks/useMagnetic';
 
@@ -89,20 +90,16 @@ export default function CTA() {
             className="flex justify-center"
           >
             {/* Magnetic CTA button */}
-            <a
+            <Link
               ref={magneticBtn.ref}
               onMouseMove={magneticBtn.onMouseMove}
               onMouseLeave={magneticBtn.onMouseLeave}
-              href="#membership"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('#membership');
-              }}
+              to="/membership"
               className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto min-h-[48px] px-8 sm:px-10 py-4 sm:py-5 bg-wine hover:bg-wine-light text-white text-xs font-bold uppercase tracking-[0.2em] rounded-xs transition-colors duration-300 shadow-xl shadow-wine/25 active:scale-[0.98]"
             >
               <span>Start Your Journey</span>
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

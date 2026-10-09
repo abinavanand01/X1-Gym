@@ -25,11 +25,9 @@
 
 /* Base styles */
 html {
-  scroll-behavior: auto !important; /* Lenis handles this */
-  overscroll-behavior-y: none;
-  overflow-x: hidden;
-  max-width: 100vw;
+  scroll-behavior: smooth;
   width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -42,10 +40,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  max-width: 100vw;
   width: 100%;
-  overscroll-behavior-y: none;
+  max-width: 100%;
+  min-height: 100%;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  position: relative;
+}
+
+/* Offset for fixed navbar when scrolling to sections */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
 }
 
 /* Selection color */
@@ -81,17 +92,6 @@ html.lenis body {
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
-}
-
-/* Off-screen optimization */
-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
-}
-
-#hero {
-  content-visibility: visible;
-  contain-intrinsic-size: none;
 }
 
 /* Reduced motion */

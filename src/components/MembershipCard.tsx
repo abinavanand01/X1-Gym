@@ -20,7 +20,12 @@ const cardVariants = {
   }),
 };
 
-function scrollToSection(selector: string) {
+function scrollToTarget(selector: string) {
+  const inquiry = document.getElementById('membership-inquiry');
+  if (inquiry) {
+    inquiry.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
   const el = document.querySelector(selector) as HTMLElement | null;
   if (el) {
     const lenis = (window as any).lenis;
@@ -29,6 +34,8 @@ function scrollToSection(selector: string) {
     } else {
       el.scrollIntoView({ behavior: 'smooth' });
     }
+  } else {
+    window.location.href = '/#contact';
   }
 }
 
@@ -143,7 +150,7 @@ export default function MembershipCard({ plan, index }: Props) {
         href="#contact"
         onClick={(e) => {
           e.preventDefault();
-          scrollToSection('#contact');
+          scrollToTarget('#contact');
         }}
         className={`group relative z-10 flex items-center justify-center gap-2 w-full py-4 text-center text-xs font-bold uppercase tracking-[0.2em] rounded-xs transition-all duration-300 ${
           plan.highlighted

@@ -166,7 +166,7 @@ export default function Trainers() {
                   <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 border-t border-border-beige">
                     <button
                       onClick={() => scrollToContact(activeTrainer.name)}
-                      className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-wine hover:bg-wine-light text-white text-xs font-bold uppercase tracking-[0.18em] rounded-xs transition-all duration-300 shadow-md shadow-wine/20 active:scale-[0.98] w-full sm:w-auto min-h-[48px]"
+                      className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3.5 sm:py-4 bg-wine hover:bg-wine-light text-white text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] rounded-xs transition-all duration-300 shadow-md shadow-wine/20 active:scale-[0.98] w-full sm:w-auto min-h-[48px]"
                     >
                       <span>Book Consultation With {activeTrainer.name.split(' ')[0]}</span>
                       <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />

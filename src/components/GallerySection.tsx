@@ -1,5 +1,5 @@
 import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { galleryImages } from '../data';
 import ImageWithFallback from './ImageWithFallback';
 import { Maximize2 } from 'lucide-react';
@@ -10,6 +10,16 @@ export default function GallerySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      setIsDesktop(typeof window !== 'undefined' && window.innerWidth >= 768 && window.matchMedia('(pointer: fine)').matches);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -64,9 +74,9 @@ export default function GallerySection() {
           </p>
         </motion.div>
 
-        {/* Dynamic Editorial Grid with parallax & stagger */}
+        {/* Dynamic Editorial Grid with parallax on desktop & natural scroll on mobile */}
         <motion.div
-          style={{ y: yParallax }}
+          style={{ y: isDesktop ? yParallax : 0 }}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-[220px] sm:auto-rows-[240px] md:auto-rows-[270px]"
         >
           {galleryImages.map((img, i) => (

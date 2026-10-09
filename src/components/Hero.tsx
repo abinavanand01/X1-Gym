@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ArrowRight, ChevronDown, Award, Compass } from 'lucide-react';
 import ImageWithFallback from './ImageWithFallback';
 import ASSETS from '../assets/images';
@@ -12,9 +12,11 @@ function scrollToSection(selector: string) {
   if (el) {
     const lenis = (window as any).lenis;
     if (lenis) {
-      lenis.scrollTo(el, { duration: 1.4, offset: -50 });
+      lenis.scrollTo(el, { duration: 1.1, offset: -70 });
     } else {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navOffset = 70;
+      const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   }
 }
@@ -38,6 +40,21 @@ const lineRevealVariants = {
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroCtaMagnetic = useMagnetic<HTMLAnchorElement>(0.25, 7);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(
+        window.innerWidth < 1024 ||
+        window.matchMedia('(pointer: coarse)').matches ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      );
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
@@ -54,10 +71,11 @@ export default function Hero() {
 
   return (
     <section
-      id="hero"
+      id="home"
       ref={containerRef}
       className="relative bg-ivory pt-20 sm:pt-28 md:pt-44 pb-12 sm:pb-16 md:pb-28 overflow-hidden"
     >
+      <span id="hero" className="sr-only" aria-hidden="true" />
       {/* Subtle Oversized Editorial Monogram Watermark */}
       <div 
         aria-hidden="true" 
@@ -82,7 +100,7 @@ export default function Hero() {
           </motion.div>
 
           {/* ═══ CINEMATIC LINE-BY-LINE MASK REVEAL HEADING WITH OUTLINED WORD ═══ */}
-          <h1 className="text-[2.15rem] xs:text-[2.4rem] sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.96] sm:leading-[0.92] tracking-tighter text-near-black mb-5 sm:mb-8">
+          <h1 className="text-[clamp(1.95rem,7.8vw,2.5rem)] xs:text-[2.4rem] sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.96] sm:leading-[0.92] tracking-tighter text-near-black mb-5 sm:mb-8">
             {heroLines.map((line, i) => (
               <span
                 key={line}
@@ -122,7 +140,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.05, ease: easeOut }}
-              className="md:col-span-4 flex flex-row items-center gap-2.5 sm:gap-3 w-full md:justify-end"
+              className="md:col-span-4 flex flex-row items-center gap-2 xs:gap-2.5 sm:gap-3 w-full md:justify-end"
             >
               <a
                 ref={heroCtaMagnetic.ref}
@@ -133,10 +151,10 @@ export default function Hero() {
                   e.preventDefault();
                   scrollToSection('#membership');
                 }}
-                className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3.5 sm:py-4 bg-wine hover:bg-wine-light text-white text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] rounded-xs transition-all duration-300 shadow-md shadow-wine/20 active:scale-[0.98] will-change-transform min-h-[48px] text-center"
+                className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 px-3 xs:px-4 sm:px-8 py-3.5 sm:py-4 bg-wine hover:bg-wine-light text-white text-[10px] xs:text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] xs:tracking-[0.14em] sm:tracking-[0.18em] rounded-xs transition-all duration-300 shadow-md shadow-wine/20 active:scale-[0.98] will-change-transform min-h-[48px] text-center whitespace-nowrap"
               >
                 <span>Start Training</span>
-                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+                <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
               </a>
               <a
                 href="#programs"
@@ -144,7 +162,7 @@ export default function Hero() {
                   e.preventDefault();
                   scrollToSection('#programs');
                 }}
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center px-4 sm:px-7 py-3.5 sm:py-4 bg-white border border-border-beige hover:border-near-black text-near-black text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] rounded-xs transition-all duration-300 active:scale-[0.98] min-h-[48px] text-center"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center px-3 xs:px-4 sm:px-7 py-3.5 sm:py-4 bg-white border border-border-beige hover:border-near-black text-near-black text-[10px] xs:text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] xs:tracking-[0.14em] sm:tracking-[0.18em] rounded-xs transition-all duration-300 active:scale-[0.98] min-h-[48px] text-center whitespace-nowrap"
               >
                 Explore
               </a>
@@ -160,7 +178,10 @@ export default function Hero() {
           className="relative rounded-sm bg-white border border-border-beige p-2 sm:p-3 md:p-4 shadow-[0_20px_50px_rgba(17,17,17,0.06)]"
         >
           <div className="relative aspect-[16/11] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-xs bg-ivory-warm">
-            <motion.div style={{ scale, y: yImage }} className="w-full h-full will-change-transform">
+            <motion.div
+              style={isMobile ? undefined : { scale, y: yImage }}
+              className="w-full h-full will-change-transform"
+            >
               <ImageWithFallback
                 src={ASSETS.hero.background}
                 alt="X1 Athletic Club Interior Chennai"
@@ -198,10 +219,10 @@ export default function Hero() {
         >
           <span>Discipline • Progressive Overload • Longevity</span>
           <a
-            href="#philosophy"
+            href="#about"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('#philosophy');
+              scrollToSection('#about');
             }}
             className="flex items-center gap-1.5 sm:gap-2 hover:text-wine transition-colors min-h-[40px]"
           >

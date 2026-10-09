@@ -1,13 +1,20 @@
 import type { Program, Trainer, MembershipPlan, Testimonial, GalleryImage } from '../types';
 import ASSETS from '../assets/images';
 
-export const navLinks = [
-  { label: 'Home', href: '#hero' },
-  { label: 'About', href: '#philosophy' },
-  { label: 'Programs', href: '#programs' },
-  { label: 'Trainers', href: '#trainers' },
-  { label: 'Membership', href: '#membership' },
-  { label: 'Contact', href: '#contact' },
+export interface NavLink {
+  label: string;
+  href: string;
+  sectionId: string;
+}
+
+export const navLinks: NavLink[] = [
+  { label: 'Home', href: '#home', sectionId: 'home' },
+  { label: 'About', href: '#about', sectionId: 'about' },
+  { label: 'Programs', href: '#programs', sectionId: 'programs' },
+  { label: 'Trainers', href: '#trainers', sectionId: 'trainers' },
+  { label: 'Membership', href: '#membership', sectionId: 'membership' },
+  { label: 'Workout', href: '#workout', sectionId: 'workout' },
+  { label: 'Contact', href: '#contact', sectionId: 'contact' },
 ];
 
 export const programs: Program[] = [
@@ -92,6 +99,8 @@ export const membershipPlans: MembershipPlan[] = [
   {
     name: 'X1 Basic',
     price: '₹2,499',
+    period: '/ month',
+    description: 'Full facility access during staffed training hours with daily structured coaching support.',
     features: [
       'Full access during staffed training hours',
       'Access to daily structured group sessions',
@@ -103,6 +112,8 @@ export const membershipPlans: MembershipPlan[] = [
   {
     name: 'X1 Pro',
     price: '₹4,999',
+    period: '/ month',
+    description: 'Our most sought-after tier. Unlimited 24/7 facility access, monthly 1-on-1 coaching, and nutrition guidance.',
     features: [
       'Unlimited 24/7 training facility access',
       'All high-performance group classes included',
@@ -116,6 +127,8 @@ export const membershipPlans: MembershipPlan[] = [
   {
     name: 'X1 Elite',
     price: '₹8,999',
+    period: '/ month',
+    description: 'Complete uncompromised mastery. Unlimited personal master coaching, private locker, and recovery suite.',
     features: [
       'VIP all-access 24/7 keycard with guest privileges',
       'Unlimited personal coaching with Master Trainers',

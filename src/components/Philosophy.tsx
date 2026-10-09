@@ -23,7 +23,8 @@ export default function Philosophy() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="philosophy" className="relative bg-ivory py-12 sm:py-20 md:py-36 lg:py-44 overflow-hidden border-t border-border-beige">
+    <section id="about" className="relative bg-ivory py-12 sm:py-20 md:py-36 lg:py-44 overflow-hidden border-t border-border-beige">
+      <span id="philosophy" className="sr-only" aria-hidden="true" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-center">
           {/* Image side - White framed editorial photo */}
